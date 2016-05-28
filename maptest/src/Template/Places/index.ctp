@@ -103,7 +103,7 @@
 
         //XML取得
         $.ajax({
-        	url: 'places/xml?ne_lat='+map_ne_lat+'&sw_lat='+map_sw_lat+'&ne_lng='+map_ne_lng+'&sw_lng='+map_sw_lng,
+        	url: 'places/xml.xml?ne_lat='+map_ne_lat+'&sw_lat='+map_sw_lat+'&ne_lng='+map_ne_lng+'&sw_lng='+map_sw_lng,
         	type: 'GET',
         	dataType: 'xml',
         	timeout: 1000,
@@ -112,7 +112,7 @@
         	},
         	success: function(xml){
                 //帰ってきた地点の数だけループ
-                $(xml).find("Locate").each(function(){
+                $(xml).find("places").each(function(){
                 	var LocateLat = $("lat",this).text();
                 	var LocateLng = $("lng",this).text();
                 	var LocateName = $("name",this).text();
